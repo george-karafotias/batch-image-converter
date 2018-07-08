@@ -1,0 +1,69 @@
+﻿<Window x:Class="BatchImageConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Batch Image Format Converter" Height="375" Width="525">
+    <DockPanel>
+        
+        <Grid DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="0,30,0,40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="14" />
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="Padding" Value="5" />
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+            </Grid.Resources>
+            
+            <StackPanel Grid.Row="0" Margin="0,0,0,20">
+                <TextBlock Text="1. Select the input folder"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="InputFolderTextBox" Width="350" IsEnabled="False" />
+                    <Button Content="Select Input Folder" Click="SelectInputFolderButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Margin="0,0,0,20">
+                <TextBlock Text="2. Select the output format"/>
+                <ComboBox x:Name="OutputFormatComboBox" HorizontalAlignment="Left" Width="100">
+                    <ComboBoxItem Content="JPG" />
+                    <ComboBoxItem Content="PNG" />
+                    <ComboBoxItem Content="BMP" />
+                    <ComboBoxItem Content="GIF" />
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Margin="0,0,0,20">
+                <TextBlock Text="3. Select the output folder"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="OutputFolderTextBox" Width="350" IsEnabled="False" />
+                    <Button Content="Select Output Folder" Click="SelectOutputFolderButton_Click" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+                <Button x:Name="ConvertButton" Content="Convert" Width="100" HorizontalAlignment="Left" Click="ConvertButton_Click" />
+                <Button x:Name="CancelButton" Content="Cancel" Width="100" Margin="20,0,0,0" IsEnabled="False" Click="CancelButton_Click" />
+            </StackPanel>
+            
+        </Grid>
+
+        <StatusBar DockPanel.Dock="Bottom" Height="30" VerticalAlignment="Bottom">
+            <StatusBarItem>
+                <TextBlock Margin="10,0,0,0" Name="StatusBarTextBlock" />
+            </StatusBarItem>
+        </StatusBar>
+
+    </DockPanel>
+</Window>
